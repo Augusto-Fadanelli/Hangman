@@ -1,10 +1,21 @@
 #Jogo da forca
 
 import unicodedata
+from random import randint
 
-secretWord = "Hipopótamo"
-tip = "Animal"
-lifes = 3
+f = open("wordList.txt", "r")
+List = f.read().splitlines()
+
+# Número aleatório
+ran = randint(0,len(List)-1)
+
+wordSecret = List[ran]
+
+word_tip = wordSecret.split(" ")
+
+secretWord = word_tip[0]
+tip = word_tip[1]
+lifes = 5
 
 # Tratamento de String
 secretWordFormated = unicodedata.normalize("NFD", secretWord)
